@@ -1,0 +1,55 @@
+.shuffleCards {
+	height: 1089px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.content {
+	width: 1216px;
+	height: 607px;
+	position: relative;
+	/* overflow: hidden; */
+}
+
+.image01 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	z-index: 1;
+}
+
+.image02 {
+	position: absolute;
+	left: 405px;
+	top: 287px;
+	z-index: 10;
+}
+
+.cardOnTop {
+	z-index: 10;
+}
+
+.cardOnBottom {
+	z-index: 1;
+}
+.cardShuffle {
+	transform: perspective(1000px) translateZ(50px);
+	transition: transform 1s;
+	cursor: pointer;
+}
+
+.text {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 355px;
+}
+.text_content {
+	width: 646px;
+	height: 80px;
+	font-weight: 700;
+	font-size: 32px;
+	line-height: 40px;
+	text-align: center;
+}

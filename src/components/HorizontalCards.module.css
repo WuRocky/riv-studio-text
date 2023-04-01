@@ -1,0 +1,27 @@
+.horizontalCards {
+	width: 100%;
+	height: 100vh;
+	overflow-x: hidden;
+	position: relative;
+	display: flex;
+	align-items: center;
+	padding-left: 40px;
+}
+
+.inner {
+	display: flex;
+	flex-direction: row;
+	overflow-y: hidden;
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+}
+
+.inner::-webkit-scrollbar {
+	display: none;
+}
+
+.item {
+	position: relative;
+	flex-shrink: 0;
+	margin-right: 30px;
+}

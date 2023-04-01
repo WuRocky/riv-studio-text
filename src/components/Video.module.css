@@ -1,0 +1,18 @@
+.video {
+	margin-bottom: ;
+}
+.text {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 560px;
+	margin-top: 508.52px;
+}
+.text_content {
+	width: 646px;
+	height: 80px;
+	font-weight: 700;
+	font-size: 32px;
+	line-height: 40px;
+	text-align: center;
+}
