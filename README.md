@@ -1,38 +1,48 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Header
 
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+```js
+const [scrollingUp, setScrollingUp] = useState(true);
+const [lastScrollPos, setLastScrollPos] = useState(0);
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+scrollingUp 用於表示用戶是否正在向上滾動，lastScrollPos 用於存儲上一次滾動的位置
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## handleScroll
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+用於處理滾動事件。它會獲取當前滾動位置，並根據上次滾動位置和當前滾動位置來判斷用戶是否在向上滾動。然後，它會更新 scrollingUp 和 lastScrollPos 的狀態。
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+# ShuffleCards
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```js
+const [clicked, setClicked] = useState(false);
+```
 
-## Learn More
+表示是否已單擊卡片
 
-To learn more about Next.js, take a look at the following resources:
+## handleClick
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+單擊卡片時調用，將 clicked 的值設置為其相反值，並套用相對應的 CSS 。
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+# Video
 
-## Deploy on Vercel
+```js
+const videoRef = useRef();
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+將 video 元素的存儲在 videoRef 中。
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## useEffect
+
+建立一個 IntersectionObserver 觀察器，觀察 video 元素是否在畫面中可見，通過 entries[0] 獲取 video 元素的狀態。然後，通過 entry.intersectionRatio 屬性獲取元素可見比例。如果元素可見比例超過 0.3，則調用 video.play() 方法來播放影片，否則調用 video.pause() 方法暫停影片，如果不可見，則設置 video.currentTime = 0，使影片從頭開始播放。
+
+# HorizontalCards
+
+```js
+const containerRef = useRef();
+```
+
+用來獲取卡片列表所在的 DOM 元素。然後，定義一個 handleWheel 函式來監聽滑鼠滾輪事件，根據滾輪滾動的方向來移動卡片。
+
+## useEffect
+
+監聽 wheel 事件，當滾輪發生事件時，會觸發 handleWheel 函式，檢查事件中的 deltaY 屬性，並且更新 containerRef 的 scrollLeft 屬性，以實現水平滾動。
