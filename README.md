@@ -38,11 +38,25 @@ const videoRef = useRef();
 # HorizontalCards
 
 ```js
-const containerRef = useRef();
+const spaceHolderRef = useRef();
+const stickyRef = useRef();
+const horizontalRef = useRef();
 ```
 
-用來獲取卡片列表所在的 DOM 元素。然後，定義一個 handleWheel 函式來監聽滑鼠滾輪事件，根據滾輪滾動的方向來移動卡片。
+分別建立引用 spaceHolder 、sticky 和 horizontal。
+
+## calcDynamicHeight
+
+獲取寬度和高度，然後獲取傳入的引用元素的寬度，最後計算並返回動態高度。
 
 ## useEffect
 
-監聽 wheel 事件，當滾輪發生事件時，會觸發 handleWheel 函式，檢查事件中的 deltaY 屬性，並且更新 containerRef 的 scrollLeft 屬性，以實現水平滾動。
+設置事件監聽器，以及初始化 spaceHolder 元素的高度。
+
+## handleScroll
+
+根據 sticky 元素的 offsetTop 值來設置 horizontal 元素的水平偏移。
+
+## handleResize
+
+它重新計算並設置 spaceHolder 元素的高度，使其適應新的大小。

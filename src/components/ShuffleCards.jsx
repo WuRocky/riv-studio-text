@@ -8,7 +8,8 @@ export default function ShuffleCards() {
 	const [clicked, setClicked] = useState(false);
 
 	const handleClick = () => {
-		setClicked(!clicked);
+		const newClicked = !clicked;
+		setClicked(newClicked);
 	};
 	return (
 		<>
@@ -20,8 +21,10 @@ export default function ShuffleCards() {
 						width={713}
 						height={474}
 						className={`${styles.image01} ${
-							clicked ? styles.cardShuffle : ""
-						} ${clicked ? styles.cardOnTop : styles.cardOnBottom}`}
+							clicked
+								? styles.animateLeftImg01
+								: styles.animateRightImg01
+						} `}
 						onClick={handleClick}
 					/>
 					<Image
@@ -30,8 +33,10 @@ export default function ShuffleCards() {
 						width={811}
 						height={320}
 						className={`${styles.image02} ${
-							!clicked ? styles.cardShuffle : ""
-						} ${!clicked ? styles.cardOnTop : styles.cardOnBottom}`}
+							!clicked
+								? styles.animateLeftImg02
+								: styles.animateRightImg02
+						} `}
 						onClick={handleClick}
 					/>
 				</div>
