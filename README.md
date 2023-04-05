@@ -60,3 +60,5 @@ const horizontalRef = useRef();
 ## handleResize
 
 它重新計算並設置 spaceHolder 元素的高度，使其適應新的大小。
+
+參考作法: https://codepen.io/KhaledPen/pen/YzXeXLm
